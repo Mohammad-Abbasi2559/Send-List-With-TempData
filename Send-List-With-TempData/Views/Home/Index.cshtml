@@ -1,0 +1,37 @@
+﻿@{
+    ViewData["Title"] = "Send List With TempData";
+}
+
+@using Newtonsoft.Json
+
+@{
+    var tempdata = TempData["user"] as string; //Get tempData
+    var data = JsonConvert.DeserializeObject<List<User>>(tempdata); //Convert TempData to List
+}
+
+<!--Show Data-->
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Family</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{ 
+            foreach (var item in data)
+            {
+                <tr>
+                    <td>@item.Name</td>
+                    <td>@item.Family</td>
+                </tr>
+            }
+        }
+    </tbody>
+    <tfoot>
+        <tr>
+            <th>Name</th>
+            <th>Family</th>
+        </tr>
+    </tfoot>
+</table>
