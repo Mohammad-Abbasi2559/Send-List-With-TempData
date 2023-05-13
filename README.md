@@ -32,7 +32,7 @@ var user = new List<User>()
 using Newtonsoft.Json;
 ```
 
-## Use JsonConvert method to create TempData
+## Use JsonConvert class to create TempData
 ```
 TempData["user"] = JsonConvert.SerializeObject(user);
 ```
